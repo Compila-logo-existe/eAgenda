@@ -100,7 +100,7 @@ public class DespesaController : Controller
     [HttpGet("editar/{id:guid}")]
     public ActionResult Editar(Guid id)
     {
-        var registroSelecionado = repositorioDespesa.SelecionarRegistroPorId(id);
+        var registroSelecionado = repositorioDespesa.SelecionarRegistroPorId(id)!;
 
         var editarVM = new EditarDespesaViewModel(
             id,
@@ -155,7 +155,7 @@ public class DespesaController : Controller
     [HttpGet("excluir/{id:guid}")]
     public IActionResult Excluir(Guid id)
     {
-        var registroSelecionado = repositorioDespesa.SelecionarRegistroPorId(id);
+        var registroSelecionado = repositorioDespesa.SelecionarRegistroPorId(id)!;
 
         var excluirVM = new ExcluirDespesaViewModel(registroSelecionado.Id, registroSelecionado.Titulo);
 
@@ -184,8 +184,8 @@ public class DespesaController : Controller
     [HttpPost, Route("/despesas/{id:guid}/adicionar-categoria")]
     public IActionResult AdicionarCategoria(Guid id, AdicionarCategoriaViewModel adicionarCategoriaVm)
     {
-        var despesaSelecionada = repositorioDespesa.SelecionarPorId(id);
-        var categoriaSelecionado = repositorioCategoria.SelecionarRegistroPorId(adicionarCategoriaVm.IdCategoria);
+        var despesaSelecionada = repositorioDespesa.SelecionarPorId(id)!;
+        var categoriaSelecionado = repositorioCategoria.SelecionarRegistroPorId(adicionarCategoriaVm.IdCategoria)!;
 
         if (despesaSelecionada.Categorias.Any(i => i.Titulo == categoriaSelecionado.Titulo))
         {
@@ -216,8 +216,8 @@ public class DespesaController : Controller
     [HttpPost, Route("/despesas/{id:guid}/remover-categoria/{idCategoria:guid}")]
     public IActionResult RemoverCategoria(Guid id, Guid idCategoria)
     {
-        var despesaSelecionada = repositorioDespesa.SelecionarPorId(id);
-        var categoriaSelecionado = repositorioCategoria.SelecionarRegistroPorId(idCategoria);
+        var despesaSelecionada = repositorioDespesa.SelecionarPorId(id)!;
+        var categoriaSelecionado = repositorioCategoria.SelecionarRegistroPorId(idCategoria)!;
 
         despesaSelecionada.RemoverCategoria(categoriaSelecionado);
         categoriaSelecionado.RemoverDespesa(despesaSelecionada);
