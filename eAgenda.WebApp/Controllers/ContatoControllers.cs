@@ -1,6 +1,4 @@
 ﻿using eAgenda.Dominio.ModuloContato;
-using eAgenda.Infraestrutura.Arquivos.Compartilhado;
-using eAgenda.Infraestrutura.Arquivos.ModuloContato;
 using eAgenda.WebApp.Helpers;
 using eAgenda.WebApp.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -10,13 +8,11 @@ namespace eAgenda.WebApp.Controllers
     [Route("contatos")]
     public class ContatoController : Controller
     {
-        private readonly ContextoDados contextoDados;
         private readonly IRepositorioContato repositorioContato;
 
-        public ContatoController()
+        public ContatoController(IRepositorioContato repositorioContato)
         {
-            contextoDados = new ContextoDados(true);
-            repositorioContato = new RepositorioContatoEmArquivo(contextoDados);
+            this.repositorioContato = repositorioContato;
         }
 
         [HttpGet("")]
