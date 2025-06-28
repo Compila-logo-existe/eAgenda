@@ -206,6 +206,9 @@ public class TarefaController : Controller
 
         itemSelecionado.Concluir();
 
+        if (tarefaSelecionada.Itens.All(i => i.Status == StatusItemTarefa.Concluido))
+            tarefaSelecionada.Concluir();
+
         contextoDados.Salvar();
 
         GerenciarItensViewModel gerenciarItensVM = new(
