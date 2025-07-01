@@ -68,11 +68,9 @@ A **Prototype E-Agenda** é um sistema eletrônico desenvolvido para organizaç�
 - Conclusão de itens atualiza o progresso total da tarefa automaticamente.
 <br><br>
 
-## 🎞️ Demonstração 
+## 🎞️ Demonstração Visual
 
-Acesse uma galeria com GIFs da aplicação em funcionamento:
-
-[👉 Clique aqui para visualizar os GIFs demonstrando a aplicação em funcionamento](eAgenda.WebApp/docs/gifs.md)
+👉 Acesse o arquivo [**demonstração por GIFs**](eAgenda.WebApp/docs/gifs.md) para ver a aplicação em funcionamento.
 
 ## Tecnologias
 ![Tecnologias](https://skillicons.dev/icons?i=github,visualstudio,vscode,cs,dotnet,html,css,javascript,bootstrap)
