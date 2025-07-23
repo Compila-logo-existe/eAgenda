@@ -32,7 +32,7 @@
 
                     <div class="form-group d-grid mt-2">
                         <label asp-for="DataOcorrencia" class="form-label fs-5">Data:</label>
-                        <input asp-for="DataOcorrencia" type="date" class="form-control" />
+                        <input asp-for="DataOcorrencia" type="date" class="form-control" value="@DateTime.Today.ToString("yyyy-MM-dd")"/>
                         <span asp-validation-for="DataOcorrencia" class="text-danger d-block mt-2"></span>
                     </div>
 
@@ -55,13 +55,13 @@
                     </div>
 
                     <div class="form-group d-grid mt-2">
-                        <label asp-for="Local" class="form-label fs-5">Local:</label>
+                        <label asp-for="Local" class="form-label fs-5">Local (somente para presencial):</label>
                         <input asp-for="Local" class="form-control" />
                         <span asp-validation-for="Local" class="text-danger d-block mt-2"></span>
                     </div>
 
                     <div class="form-group d-grid mt-2">
-                        <label asp-for="Link" class="form-label fs-5">Link:</label>
+                        <label asp-for="Link" class="form-label fs-5">Link (somente para remoto):</label>
                         <input asp-for="Link" class="form-control" />
                         <span asp-validation-for="Link" class="text-danger d-block mt-2"></span>
                     </div>

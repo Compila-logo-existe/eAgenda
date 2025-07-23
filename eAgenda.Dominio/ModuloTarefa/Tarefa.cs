@@ -48,7 +48,7 @@ public class Tarefa : EntidadeBase<Tarefa>
 
     public void Concluir()
     {
-        DataConclusao = DateTime.Today;
+        DataConclusao = DateTime.Now;
         AtualizarStatus();
     }
 

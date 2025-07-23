@@ -67,8 +67,10 @@ A **Prototype E-Agenda** é um sistema eletrônico desenvolvido para organizaç�
 - Adição e remoção de subtarefas.
 - Conclusão de itens atualiza o progresso total da tarefa automaticamente.
 <br><br>
-![](https://i.redd.it/pcskrcaunm7f1.gif) 
-***
+
+## 🎞️ Demonstração Visual
+
+👉 Acesse o arquivo [**demonstração por GIFs**](eAgenda.WebApp/docs/gifs.md) para ver a aplicação em funcionamento.
 
 ## Tecnologias
 ![Tecnologias](https://skillicons.dev/icons?i=github,visualstudio,vscode,cs,dotnet,html,css,javascript,bootstrap)

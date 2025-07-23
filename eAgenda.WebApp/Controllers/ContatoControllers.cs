@@ -66,7 +66,7 @@ namespace eAgenda.WebApp.Controllers
         [HttpGet("editar/{id:Guid}")]
         public IActionResult Editar(Guid id)
         {
-            Contato contato = repositorioContato.SelecionarRegistroPorId(id);
+            Contato contato = repositorioContato.SelecionarRegistroPorId(id)!;
             if (contato == null)
                 return NotFound();
             EditarContatoViewModel editarVM = new EditarContatoViewModel(
@@ -116,7 +116,7 @@ namespace eAgenda.WebApp.Controllers
         [HttpGet("excluir/{id:Guid}")]
         public IActionResult Excluir(Guid id)
         {
-            Contato contato = repositorioContato.SelecionarRegistroPorId(id);
+            Contato contato = repositorioContato.SelecionarRegistroPorId(id)!;
             if (contato == null)
                 return NotFound();
 
@@ -135,7 +135,7 @@ namespace eAgenda.WebApp.Controllers
         [HttpGet("detalhes/{id:Guid}")]
         public IActionResult Detalhes(Guid id)
         {
-            Contato contato = repositorioContato.SelecionarRegistroPorId(id);
+            Contato contato = repositorioContato.SelecionarRegistroPorId(id)!;
             if (contato == null)
                 return NotFound();
             DetalhesContatoViewModel detalhesVM = new DetalhesContatoViewModel(

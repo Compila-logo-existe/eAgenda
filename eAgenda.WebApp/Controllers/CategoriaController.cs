@@ -1,5 +1,4 @@
 ﻿using eAgenda.Dominio.ModuloCategoria;
-using eAgenda.Infraestrutura.Arquivos.Compartilhado;
 using eAgenda.WebApp.Extensions;
 using eAgenda.WebApp.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -9,12 +8,10 @@ namespace eAgenda.WebApp.Controllers;
 [Route("categorias")]
 public class CategoriaController : Controller
 {
-    private readonly ContextoDados contextoDados;
     private readonly IRepositorioCategoria repositorioCategoria;
 
-    public CategoriaController(ContextoDados contextoDados, IRepositorioCategoria repositorioCategoria)
+    public CategoriaController(IRepositorioCategoria repositorioCategoria)
     {
-        this.contextoDados = contextoDados;
         this.repositorioCategoria = repositorioCategoria;
     }
 
@@ -67,7 +64,7 @@ public class CategoriaController : Controller
 
         var editarVM = new EditarCategoriaViewModel(
             id,
-            registroSelecionado.Titulo
+            registroSelecionado!.Titulo
         );
 
         return View(editarVM);
@@ -103,7 +100,7 @@ public class CategoriaController : Controller
     {
         var registroSelecionado = repositorioCategoria.SelecionarRegistroPorId(id);
 
-        var excluirVM = new ExcluirCategoriaViewModel(registroSelecionado.Id, registroSelecionado.Titulo);
+        var excluirVM = new ExcluirCategoriaViewModel(registroSelecionado!.Id, registroSelecionado.Titulo);
 
         return View(excluirVM);
     }
@@ -130,7 +127,6 @@ public class CategoriaController : Controller
         return RedirectToAction(nameof(Index));
     }
 
-
     [HttpGet("despesas/{id:guid}")]
     public IActionResult Despesas(Guid id)
     {
@@ -148,7 +144,7 @@ public class CategoriaController : Controller
                 Id = d.Id,
                 Titulo = d.Titulo,
                 Descricao = d.Descricao,
-                DataOcorrencia = d.DataOcorrencia, 
+                DataOcorrencia = d.DataOcorrencia,
                 Valor = d.Valor,
                 FormaPagamento = d.FormaPagamento.ToString()
             }).ToList()
@@ -156,6 +152,4 @@ public class CategoriaController : Controller
 
         return View(despesasVM);
     }
-
-
 }

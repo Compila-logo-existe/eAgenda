@@ -8,7 +8,7 @@ namespace eAgenda.Dominio.ModuloCompromisso;
 public class Compromisso : EntidadeBase<Compromisso>
 {
     public string Assunto { get; set; } = string.Empty;
-    public DateTime DataOcorrencia { get; set; }
+    public DateTime DataOcorrencia { get; set; } = DateTime.Now;
 
     public DateTime HoraInicio { get; set; }
 
